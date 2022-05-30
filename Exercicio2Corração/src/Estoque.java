@@ -9,32 +9,41 @@ public class Estoque {
     int posição=0;
 
     public void inserir(Produto dado){
+    	
         No x = new No(dado);
         
         if(Inicio == null){
             Inicio = x;
             Final = x;
-        } else if (x.dado.getValidade().compareTo(Final.dado.getValidade()) >= 0){                
+        } else if (x.dado.getValidade().compareTo(Final.dado.getValidade()) >= 0){   
+        	
                 x.esq = Final;
                 Final.dir = x;
                 Final = x;
+                
         } else if (x.dado.getValidade().compareTo(Inicio.dado.getValidade()) <= 0) {
+        	
                 x.dir = Inicio;
                 Inicio.esq = x;
                 Inicio = x;
             } else {
+            	
                 No y = Inicio;
                 No z = x;
                 while(y != null) {
+                	
                     if(x.dado.getValidade().compareTo(y.dado.getValidade()) <= 0 ) {
                         z.dir = x;
                         x.esq = z;
                         x.dir = y;
                         y.esq = x;
                         break;
+                        
                     } else {
+                    	
                         z = y;
                         y = y.dir;
+                        
                     }
 			    } 
             }
@@ -68,23 +77,31 @@ public class Estoque {
 
         if(x != null){
             if(posição == 1){
+            	
                 x.dir = null;
                 x.esq = null;
                 Inicio = null;
                 Final = null;
+                
             } else if(x == Inicio){
+            	
                 Inicio = x.dir;
                 Inicio.esq = null;
                 x.dir = null;
+                
             } else if(x == Final){
+            	
                 Final = x.esq;
                 Final.dir = null;
                 x.esq = null;
+                
             } else{
+            	
                 x.esq.dir = x.dir;
                 x.dir.esq = x.esq;
                 x.dir = null;
                 x.esq = null;
+                
             }
             posição--;
             realizado = true;
@@ -96,8 +113,10 @@ public class Estoque {
     public void imprimir(){
         No x = Inicio;
         while(x!=null){
+        	
             JOptionPane.showMessageDialog(null, "Produto: " + x.dado.getNome() + "\nData de validade: " + x.dado.getValidade() + "\nQuantidade: " + x.dado.getQuantidade());
             x = x.dir;
+     //tentei usar o getDados pra usar aqui mas não deu certo, usei separado mesmo
         }
     }
 

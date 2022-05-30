@@ -4,7 +4,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 import javax.swing.JOptionPane;
 
-
+//Trabalho feito por Frederico, Leonardo e Ricardo
 
 public class Main {
 	public static void main(String[] args) {
@@ -14,8 +14,10 @@ public class Main {
     do {
     	opcao = parseInt(showInputDialog(Util.Menu()));
     			if (opcao < 1|| opcao >5) {
+    				
     				showMessageDialog(null, "Opção inválida");
     			}else {
+    				
     				switch(opcao) {
     	
     				case 1:
@@ -30,7 +32,8 @@ public class Main {
     			
     				}
     			}
-       }while(opcao != 4);
+       }
+    	while(opcao != 4);
     
 	}
  

@@ -1,5 +1,7 @@
 import javax.swing.JOptionPane;
 
+//Trabalho feito por Frederico, Leonardo e Ricardo
+
 public class Util {
 
     static Estoque estoque = new Estoque();
@@ -15,6 +17,7 @@ public class Util {
     }
 
 	public static void Cadastrar() {
+		
 		String Nome = JOptionPane.showInputDialog(null, "Nome do produto: ");
 
 		No aux = estoque.Pesquisar(Nome);
@@ -32,15 +35,15 @@ public class Util {
 			Produto dado = new Produto(Nome, Validade, Quantidade);
 			estoque.inserir(dado);
 
-			JOptionPane.showMessageDialog(null, "Cadastro feito com sucesso");
+				JOptionPane.showMessageDialog(null, "Cadastro feito com sucesso");
 		} else {
-			JOptionPane.showMessageDialog(null, "Produto já existe no sistema");
+				JOptionPane.showMessageDialog(null, "Produto já existe no sistema");
 		}
 	}
 
     public static void ProdutosL(){
         if(estoque.posição == 0){
-            JOptionPane.showMessageDialog(null, "Ainda não existem produtos cadastrados");
+            	JOptionPane.showMessageDialog(null, "Ainda não existem produtos cadastrados");
             throw new UnsupportedOperationException();
 
         } else {
@@ -52,9 +55,9 @@ public class Util {
         String nome = JOptionPane.showInputDialog("Nome do produto: ");
         No aux = estoque.Pesquisar(nome);
         if(aux == null){
-            JOptionPane.showMessageDialog(null, "Produto inexistente");
+            	JOptionPane.showMessageDialog(null, "Produto inexistente");
         } else{
-            JOptionPane.showMessageDialog(null, "Produto: " + aux.dado.getNome() + "\nData de validade: " + aux.dado.getValidade() + "\nValidade: " + aux.dado.getQuantidade());
+            	JOptionPane.showMessageDialog(null, "Produto: " + aux.dado.getNome() + "\nData de validade: " + aux.dado.getValidade() + "\nValidade: " + aux.dado.getQuantidade());
             int qtd = Integer.parseInt(JOptionPane.showInputDialog("Validade desejada: "));
             if(qtd > aux.dado.getQuantidade()){
                 JOptionPane.showMessageDialog(null, "Esse produto não tem um validade correta");
