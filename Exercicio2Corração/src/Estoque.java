@@ -44,7 +44,7 @@ public class Estoque {
     
 
     
-    
+    //Método global para realizar as buscas
     public No Pesquisar(String Nome){
         No x = Inicio;
         boolean achou = false;

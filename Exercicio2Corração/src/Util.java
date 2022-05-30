@@ -4,6 +4,15 @@ public class Util {
 
     static Estoque estoque = new Estoque();
     
+    public static String Menu(){
+        String aux  = "Escolha uma opção:";
+            aux += "\n1. Cadastrar produto";
+            aux += "\n2. Listar produtos";
+            aux += "\n3. Comprar produto";
+            aux += "\n4. Encerrar";
+        
+        return aux;   
+    }
 
 	public static void Cadastrar() {
 		String Nome = JOptionPane.showInputDialog(null, "Nome do produto: ");
@@ -16,8 +25,9 @@ public class Util {
 			int dia = Integer.parseInt(JOptionPane.showInputDialog(null, "Dia : "));
 
 			int ano = Integer.parseInt(JOptionPane.showInputDialog(null, "Ano : "));
-			String Validade = ano + "/" + mes + "/" + dia;
-			int Quantidade = Integer.parseInt(JOptionPane.showInputDialog(null, "Validade em estoque: "));
+			
+			String Validade = mes + "/" + dia + "/" + ano;
+			int Quantidade = Integer.parseInt(JOptionPane.showInputDialog(null, "Quantidade em estoque: "));
 
 			Produto dado = new Produto(Nome, Validade, Quantidade);
 			estoque.inserir(dado);
@@ -58,13 +68,4 @@ public class Util {
         }
         
     }
-    public static String Menu(){
-        String aux  = "Escolha uma opção:";
-            aux += "\n1. Cadastrar produto";
-            aux += "\n2. Listar produtos";
-            aux += "\n3. Comprar produto";
-            aux += "\n4. Encerrar";
-        
-        return aux;   
     }
-}
